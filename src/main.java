@@ -1,5 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -78,11 +80,14 @@ public class main {
 
 
 //Test Kode
-        displayGuest(people);
+//        displayGuest(people);
         //displayPrice(price);
-        //calculateTotal(people);
-        createGuest("Benny", 2, 4);
-        displayGuest(people);
+//        calculateTotal(people);
+//        createGuest("Benny", 2, 4);
+//        displayGuest(people);
+//        saveData(people);
+//        calculateTotal(people);
+
     }
 
     // Display Metoder
@@ -115,5 +120,25 @@ public class main {
 
     public static void createGuest(String name, int paddleboard, int morgenmad) {
         people.add(new Guest(name, paddleboard, morgenmad));
+    }
+
+    //opdatere forbrug (Writer write)
+    public static void saveData(ArrayList<Guest> people) {
+
+        try {
+            FileWriter writer = new FileWriter("data/Forbrugs liste");
+            writer.write("Guest,Paddleboard,Breakfast\n");
+
+            for (Guest p : people) {
+                writer.write(p.getName() + ","
+                        + p.getAntalPaddleboard() + ","
+                        + p.getAntalMorgenmad() + "\n");
+            }
+
+            writer.close();
+
+        } catch (IOException e) {
+            System.out.println("Error writing file");
+        }
     }
 }
