@@ -78,9 +78,11 @@ public class main {
 
 
 //Test Kode
-        //displayGuest(people);
+        displayGuest(people);
         //displayPrice(price);
-        calculateTotal(people);
+        //calculateTotal(people);
+        createGuest("Benny", 2, 4);
+        displayGuest(people);
     }
 
     // Display Metoder
@@ -108,5 +110,10 @@ public class main {
             total += g.getAntalMorgenmad() * morgenmadPris;
 
         }
+    }
+    //Oprette gæst metode
+
+    public static void createGuest(String name, int paddleboard, int morgenmad) {
+        people.add(new Guest(name, paddleboard, morgenmad));
     }
 }
