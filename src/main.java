@@ -115,6 +115,7 @@ public class main {
             total += g.getAntalMorgenmad() * morgenmadPris;
 
         }
+
     }
     //Oprette gæst metode
 
